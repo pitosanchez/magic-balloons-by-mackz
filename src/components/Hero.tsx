@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+const balloonImg = "/balloons/6347121.webp";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -12,121 +14,106 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-400 via-yellow-300 to-blue-400 animate-gradient-xy"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-blue-600/20 animate-pulse"></div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+      {/* Animated Confetti */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        {[...Array(60)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-white rounded-full opacity-20"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -100, 0],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 10 + i * 0.5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
+            className="absolute rounded-full"
             style={{
+              width: `${Math.random() * 8 + 4}px`,
+              height: `${Math.random() * 8 + 4}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              background: `hsl(${Math.random() * 360}, 90%, 70%)`,
+              opacity: 0.7,
+              zIndex: 1,
+            }}
+            animate={{
+              y: [0, Math.random() * 40 - 20, 0],
+              x: [0, Math.random() * 40 - 20, 0],
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 2,
+              repeat: Infinity,
+              repeatType: "loop",
+              delay: Math.random() * 2,
             }}
           />
         ))}
       </div>
 
+      {/* Balloon Illustration */}
+      <motion.img
+        src={balloonImg}
+        alt="Colorful Balloons"
+        className="hidden md:block absolute right-0 bottom-0 w-[420px] max-w-[60vw] z-20 drop-shadow-2xl animate-float"
+        initial={{ y: 60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.3, type: "spring" }}
+      />
+
       {/* Main Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+      <div className="relative z-30 text-center px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+        {/* Burst Effect */}
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-gradient-radial from-yellow-300 via-pink-400 to-blue-400 opacity-40 blur-2xl rounded-full z-0 animate-pulse" />
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="glass-effect rounded-3xl p-8 sm:p-12 lg:p-16 max-w-4xl mx-auto"
+          transition={{ duration: 1 }}
+          className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mb-6"
-          >
-            <Sparkles className="w-16 h-16 mx-auto text-[var(--accent)]" />
-          </motion.div>
+          <span className="block">Unleash the</span>
+          <span className="block">Magic of Balloons</span>
+          <span className="block text-3xl sm:text-5xl font-bold mt-2 text-white drop-shadow-xl">
+            with Mack!
+          </span>
+        </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 gradient-text"
-          >
-            Magic Balloons by Mack
-          </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-2xl sm:text-3xl font-semibold text-white mb-10 max-w-2xl mx-auto drop-shadow-lg animate-pulse"
+        >
+          🎉 Colorful. Creative. Unforgettable. <br />
+          <span className="text-yellow-200">
+            Birthday parties, events, and celebrations that POP!
+          </span>
+        </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl sm:text-2xl text-gray-700 mb-8 font-medium"
-          >
-            ✨ Turning Birthday Dreams into Colorful Reality ✨
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={scrollToContact}
-              className="group bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
-            >
-              Book Your Party Magic!
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() =>
-                document
-                  .querySelector("#gallery")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="border-2 border-[var(--primary)] text-[var(--primary)] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary)] hover:text-white transition-all duration-300"
-            >
-              View Our Work
-            </motion.button>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+          <motion.button
+            whileHover={{ scale: 1.08, y: -3 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={scrollToContact}
+            className="group bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500 text-white px-10 py-5 rounded-full text-2xl font-bold shadow-2xl hover:shadow-pink-400/40 transition-all duration-300 flex items-center gap-3 border-4 border-white/30 hover:border-yellow-200"
           >
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-white rounded-full mt-2"
-            />
-          </motion.div>
+            Book Your Balloon Magic!
+            <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.08, y: -3 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() =>
+              document
+                .querySelector("#gallery")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="bg-white/80 text-pink-600 px-10 py-5 rounded-full text-2xl font-bold border-4 border-pink-200 hover:bg-yellow-100 hover:text-blue-600 transition-all duration-300 shadow-lg"
+          >
+            See Our Creations
+          </motion.button>
         </motion.div>
       </div>
     </section>

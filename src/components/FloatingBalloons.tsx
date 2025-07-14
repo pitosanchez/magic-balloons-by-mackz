@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+const base = import.meta.env.BASE_URL;
 const balloonImages = [
-  "/balloons/8983219.webp",
-  "/balloons/7228079.webp",
-  "/balloons/6347121.webp",
+  `${base}balloons/8983219.webp`,
+  `${base}balloons/7228079.webp`,
+  `${base}balloons/6347121.webp`,
 ];
 
 const BALLOON_COUNT = 8;

@@ -65,11 +65,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 text-gradient-blue-red text-outline-white"
+          className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 gradient-text"
         >
           <span className="block">Unleash the</span>
           <span className="block">Magic of Balloons</span>
-          <span className="block text-3xl sm:text-5xl font-bold mt-2">
+          <span className="block text-3xl sm:text-5xl font-bold mt-2 gradient-text">
             with Mack!
           </span>
         </motion.h1>
@@ -78,7 +78,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-2xl sm:text-3xl font-semibold text-white mb-10 max-w-2xl mx-auto drop-shadow-lg animate-pulse"
+          className="text-2xl sm:text-3xl font-semibold gradient-text mb-10 max-w-2xl mx-auto drop-shadow-lg animate-pulse"
         >
           🎉 Colorful. Creative. Unforgettable. <br />
           <span className="text-yellow-200">

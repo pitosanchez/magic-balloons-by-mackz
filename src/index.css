@@ -114,3 +114,59 @@
     }
   }
 }
+
+@layer utilities {
+  .text-outline-strong {
+    text-shadow: 2px 2px 0 #222, -2px 2px 0 #222, 2px -2px 0 #222,
+      -2px -2px 0 #222, 0px 2px 0 #222, 2px 0px 0 #222, 0px -2px 0 #222,
+      -2px 0px 0 #222;
+  }
+  .text-gradient-rbgy {
+    background: linear-gradient(
+      90deg,
+      #ff3b3b,
+      #ffd600,
+      #00e676,
+      #2979ff,
+      #ff3b3b
+    );
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-move 6s ease-in-out infinite;
+  }
+  @keyframes gradient-move {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  .text-outline-white {
+    text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff,
+      -2px -2px 0 #fff, 0px 2px 0 #fff, 2px 0px 0 #fff, 0px -2px 0 #fff,
+      -2px 0px 0 #fff;
+  }
+  .text-gradient-blue-red {
+    background: linear-gradient(90deg, #2979ff, #ff3b3b, #ff6b81, #2979ff);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-move-blue-red 6s ease-in-out infinite;
+  }
+  @keyframes gradient-move-blue-red {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}

@@ -109,7 +109,7 @@ const Gallery = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 gradient-text">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gradient-rbgy text-outline-white">
             Our Balloon Masterpieces
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">

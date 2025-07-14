@@ -65,11 +65,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg"
+          className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 text-gradient-blue-red text-outline-white"
         >
           <span className="block">Unleash the</span>
           <span className="block">Magic of Balloons</span>
-          <span className="block text-3xl sm:text-5xl font-bold mt-2 text-white drop-shadow-xl">
+          <span className="block text-3xl sm:text-5xl font-bold mt-2">
             with Mack!
           </span>
         </motion.h1>
